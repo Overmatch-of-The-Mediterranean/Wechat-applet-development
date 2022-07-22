@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class="header">
+  <input class="header-input" type="text"   placeholder="AngularJS·MySQL·Java"
+  placeholder-class="header-input-placeholder"
+  bindinput="handleInputChange"
+  />
+  <icon 
+    type="search" 
+    class="header-input-icon" 
+    size="15"
+    wx:if="{{showIcon}}"
+    ></icon>
+</view>
+<view class="navigator">
+  <view 
+  wx:for="{{tabs}}"
+  wx:key="type"
+  class="navigator-item"
+  data-type="{{item.type}}"
+  bindtap="changeType"
+  >
+    <image class="navigator-img" src="../../resources/{{item.type}}.png"></image>
+    {{item.name}}
+    <view 
+    hidden="{{type!=item.type}}"
+    class="navigator-active navigator-active-{{item.type}}"
+    ></view>
+  </view>
+</view>
+
+<include src="./recommend"/>
+
+<include src="./activity"/>
